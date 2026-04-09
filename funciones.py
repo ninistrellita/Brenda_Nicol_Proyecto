@@ -95,12 +95,12 @@ def crear_factura():
 
             for item in detalles:
                 f.write(
-                    f"Cod: {item["codigo"]} |"
-                    f"Producto: {item["nombre"]} \n| "
-                    f"Cantidad: {item["cantidad"]} \n| "
-                    f"Valor unitario: {item["valor_unitario"]}\n | "
-                    f"IVA: {item["iva"]}% |\n "
-                    f"Subtotal: {item["subtotal"]}\n"
+                    f"Cod: {item['codigo']} |"
+                    f"Producto: {item['nombre']} \n| "
+                    f"Cantidad: {item['cantidad']} \n| "
+                    f"Valor unitario: {item['valor_unitario']}\n | "
+                    f"IVA: {item['iva']}% |\n "
+                    f"Subtotal: {item['subtotal']}\n"
                 )
 
             f.write("\n--------------------------------\n")
