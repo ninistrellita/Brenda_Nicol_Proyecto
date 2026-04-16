@@ -1,4 +1,5 @@
-from funciones import crear_producto, crear_mesa, crear_cliente, registro_venta, crear_factura
+from funciones import crear_producto, crear_mesa, crear_cliente, crear_factura ,registro_venta
+from funcion_examen import producto_mas_vendido
 while True:
     print("---------------------------------------")
     print("SISTEMA DE FACRURACION RESTAURANTE ACME")
@@ -7,7 +8,8 @@ while True:
     print("3. Ver/registar clientes")
     print("4. Crear factura")
     print("5. Registro de ventas")
-    print("6. Salir")
+    print("6. Ranking de productos")
+    print("7. Salir")
     print("---------------------------------------")
     opcion = input("Digite la opcion: ")
     print("---------------------------------------")
@@ -28,6 +30,9 @@ while True:
         registro_venta()
 
     elif opcion == "6":
+        producto_mas_vendido()
+
+    elif opcion == "7":
         print("Saliendo del sistema...")
         break
     else:
