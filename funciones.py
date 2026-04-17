@@ -1,6 +1,7 @@
 import csv
 
 from datetime import datetime
+from funcion_examen import venta_producto
 
 def buscar_por_codigo(archivo, codigo_buscado):
     with open(archivo, "r", newline="") as f:
@@ -90,7 +91,7 @@ def crear_factura():
     guardar = input("Desea guardar la factura? (si/no): ").lower()
     if guardar == "si":
         nombre_archivo = ("factura.csv")
-        with open(nombre_archivo, "w") as f:
+        with open(nombre_archivo, "a") as f:
             f.write(f"-----------FACTURA----------\nFecha: {fecha}\nMesa: {mesa['nombre']}\nCliente: {cliente['nombre']}\nTelefono: {cliente['telefono']}\nCorreo: {cliente['correo']}\n--------------------------------\n")
 
             for item in detalles:
@@ -108,11 +109,16 @@ def crear_factura():
             f.write(f"TOTAL A PAGAR: {total}\n")
 
         guardar_venta(fecha, mesa["nombre"], cliente["nombre"], total)
+
+        for item in detalles :
+            venta_producto(producto["nombre"], cantidad , fecha)
+
         print("Factura guardada correctamente")
     elif guardar == "no":
         print("Factura no guardada")
     else:
         print("Opcion no valida")
+
 
 def guardar_venta(fecha, nombre_mesa, nombre_cliente, total_pagar):
     encabezado = ["fecha", "mesa", "cliente", "total"]
@@ -140,6 +146,7 @@ def registro_venta():
         lector = csv.DictReader(f)
         for venta in lector:
             print(f"Fecha: {venta['fecha']} | Mesa: {venta['mesa']} | Cliente: {venta['cliente']} | Total: {venta['total']}")
+
 
 def crear_producto():
     print("1. Agregar producto")
@@ -179,7 +186,6 @@ def crear_producto():
                     print(producto["codigo"],"-",producto["nombre"])
     else:
         print("Opcion no valida")
-
 def crear_mesa():
     print("1. Agregar mesas")
     print("2. Ver mesas")
@@ -261,3 +267,6 @@ def crear_cliente():
                 print(cliente["codigo"],"-",cliente["nombre"],"-",cliente["telefono"],"-",cliente["correo"])
     else:
         print("Opcion no valida")
+
+                
+                

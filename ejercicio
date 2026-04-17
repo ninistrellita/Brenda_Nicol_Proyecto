@@ -1,0 +1,19 @@
+El gerente desea conocer qué producto es el más vendido en un rango de fechas.
+
+El comando debe:
+
+Solicitar fecha inicial y final.
+Procesar facturas y contar productos vendidos.
+Imprimir en pantalla el producto más vendido (código, nombre y cantidad).
+Guardar resultado en archivo JSON dentro de /reports.
+Requisitos
+Función: producto_mas_vendido(fecha_inicio, fecha_fin)
+Validar existencia de facturas en el rango.
+JSON con resumen y fecha de consulta.
+Entrega
+Módulo/función y ejemplo de archivo en el repo.
+
+
+Resultado esperado
+
+Se deberá hacer un nuevo commit en el mismo repositorio del proyecto original, agregando el comando de exportación. El archivo JSON generado debe estar correctamente estructurado y la funcionalidad debe poder ejecutarse desde consola.
