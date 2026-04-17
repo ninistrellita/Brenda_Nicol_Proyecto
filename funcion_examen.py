@@ -5,13 +5,11 @@ def venta_producto (producto, cantidad, fecha , codigo):
 
     try:
         with open("BRENDA_NICOL_PROYECTO/venta_productos.csv" , "r") :
-        with open("venta_productos.csv" , "r") :
             encabezado_existe = True
     except FileNotFoundError :
         encabezado_existe = False
 
     with open ("BRENDA_NICOL_PROYECTO/venta_productos.csv" , "a") as f :
-    with open ("venta_productos.csv" , "a") as f :
         escritor = csv.DictWriter(f,fieldnames=encabezado)
         if not encabezado_existe :
             escritor.writeheader()
