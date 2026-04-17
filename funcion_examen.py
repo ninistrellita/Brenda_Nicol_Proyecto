@@ -4,20 +4,14 @@ def venta_producto (producto, cantidad, fecha , codigo):
     encabezado = ["Fecha" , "Codigo" , "Producto" , "Cantidad"]
 
     try:
-<<<<<<< HEAD
         with open("BRENDA_NICOL_PROYECTO/venta_productos.csv" , "r") :
-=======
         with open("venta_productos.csv" , "r") :
->>>>>>> refs/remotes/origin/main
             encabezado_existe = True
     except FileNotFoundError :
         encabezado_existe = False
 
-<<<<<<< HEAD
     with open ("BRENDA_NICOL_PROYECTO/venta_productos.csv" , "a") as f :
-=======
     with open ("venta_productos.csv" , "a") as f :
->>>>>>> refs/remotes/origin/main
         escritor = csv.DictWriter(f,fieldnames=encabezado)
         if not encabezado_existe :
             escritor.writeheader()
@@ -32,11 +26,7 @@ def venta_producto (producto, cantidad, fecha , codigo):
 
 def producto_mas_vendido(producto,cantidad) :
     
-<<<<<<< HEAD
-    with open ("BRENDA_NICOL_PROYECTO/venta_productos.csv" , "r") as f :
-=======
     with open ("venta_productos.csv" , "r") as f :
->>>>>>> refs/remotes/origin/main
         lector = csv.DictReader(f)
         if producto > cantidad in lector :
             print(["Producto"] , ["Cantidad"])
