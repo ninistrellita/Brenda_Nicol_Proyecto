@@ -16,13 +16,13 @@ def crear_factura():
     print("---------- CREAR FACTURA ----------")
 
     cod_mesa = int(input("Ingrese codigo de la mesa: "))
-    mesa = buscar_por_codigo("Mesas.csv", cod_mesa)
+    mesa = buscar_por_codigo("BRENDA_NICOL_PROYECTO/Mesas.csv", cod_mesa)
     if mesa is None:
         print("La mesa no se encuentra registrada")
         return
 
     cod_cliente = int(input("Ingrese codigo del cliente: "))
-    cliente = buscar_por_codigo("Clientes.csv", cod_cliente)
+    cliente = buscar_por_codigo("BRENDA_NICOL_PROYECTO/Clientes.csv", cod_cliente)
     if cliente is None:
         print("El cliente no se encuentra registrado")
         return
@@ -34,7 +34,7 @@ def crear_factura():
 
     while True:
         cod_producto = int(input("Ingrese codigo del producto: "))
-        producto = buscar_por_codigo("Producto.csv", cod_producto)
+        producto = buscar_por_codigo("BRENDA_NICOL_PROYECTO/Producto.csv", cod_producto)
 
         if producto is None:
             print("El producto no se encuentra registrado")
@@ -90,7 +90,7 @@ def crear_factura():
 
     guardar = input("Desea guardar la factura? (si/no): ").lower()
     if guardar == "si":
-        nombre_archivo = ("factura.csv")
+        nombre_archivo = ("BRENDA_NICOL_PROYECTO/factura.csv")
         with open(nombre_archivo, "a") as f:
             f.write(f"-----------FACTURA----------\nFecha: {fecha}\nMesa: {mesa['nombre']}\nCliente: {cliente['nombre']}\nTelefono: {cliente['telefono']}\nCorreo: {cliente['correo']}\n--------------------------------\n")
 
@@ -124,7 +124,7 @@ def guardar_venta(fecha, nombre_mesa, nombre_cliente, total_pagar):
     encabezado = ["fecha", "mesa", "cliente", "total"]
 
     try:
-        with open("ventas.csv", "r") as f:
+        with open("BRENDA_NICOL_PROYECTO/ventas.csv", "r") as f:
             archivo_existe = True
     except FileNotFoundError:
         archivo_existe = False
@@ -142,7 +142,7 @@ def guardar_venta(fecha, nombre_mesa, nombre_cliente, total_pagar):
         })
 
 def registro_venta():
-    with open("ventas.csv", "r") as f:
+    with open("BRENDA_NICOL_PROYECTO/ventas.csv", "r") as f:
         lector = csv.DictReader(f)
         for venta in lector:
             print(f"Fecha: {venta['fecha']} | Mesa: {venta['mesa']} | Cliente: {venta['cliente']} | Total: {venta['total']}")
@@ -168,19 +168,19 @@ def crear_producto():
         datos_productos.append(productos)
 
         try:
-            with open("Producto.csv", "r") as f:
+            with open("BRENDA_NICOL_PROYECTO/Producto.csv", "r") as f:
                 archivo_existe = True
         except FileNotFoundError:
             archivo_existe = False
 
-        with open("Producto.csv","a") as f:
+        with open("BRENDA_NICOL_PROYECTO/Producto.csv","a") as f:
             producto = csv.DictWriter(f,fieldnames = encabezado)
             if not archivo_existe:
                 producto.writeheader()
             producto.writerows(datos_productos)
 
     if opcion1 == "2":
-        with open("Producto.csv","r") as f:
+        with open("BRENDA_NICOL_PROYECTO/Producto.csv","r") as f:
             lector = csv.DictReader(f)
             for producto in lector:
                     print(producto["codigo"],"-",producto["nombre"])
@@ -207,19 +207,19 @@ def crear_mesa():
         datos_mesas.append(mesas)
 
         try:
-            with open("Mesas.csv", "r") as f:
+            with open("BRENDA_NICOL_PROYECTO/Mesas.csv", "r") as f:
                 archivo_existe = True
         except FileNotFoundError:
             archivo_existe = False
 
-        with open("Mesas.csv","a") as f:
+        with open("BRENDA_NICOL_PROYECTO/Mesas.csv","a") as f:
             mesa = csv.DictWriter(f,fieldnames = encabezado)
             if not archivo_existe:
                 mesa.writeheader()
             mesa.writerows(datos_mesas)
 
     elif opcion2 == "2":
-        with open("Mesas.csv","r") as f:
+        with open("BRENDA_NICOL_PROYECTO/Mesas.csv","r") as f:
             lector = csv.DictReader(f)
             for mesa in lector:
                 print(mesa["codigo"],"-",mesa["nombre"])
@@ -249,19 +249,19 @@ def crear_cliente():
         datos_clientes.append(clientes)
 
         try:
-            with open("Clientes.csv", "r") as f:
+            with open("BRENDA_NICOL_PROYECTO/Clientes.csv", "r") as f:
                 archivo_existe = True
         except FileNotFoundError:
             archivo_existe = False
 
-        with open("Clientes.csv","a") as f:
+        with open("BRENDA_NICOL_PROYECTO/Clientes.csv","a") as f:
             cliente = csv.DictWriter(f,fieldnames = encabezado)
             if not archivo_existe:
                 cliente.writeheader()
             cliente.writerows(datos_clientes)
 
     elif opcion3 == "2":
-        with open("Clientes.csv","r") as f:
+        with open("BRENDA_NICOL_PROYECTO/Clientes.csv","r") as f:
             lector = csv.DictReader(f)
             for cliente in lector:
                 print(cliente["codigo"],"-",cliente["nombre"],"-",cliente["telefono"],"-",cliente["correo"])
