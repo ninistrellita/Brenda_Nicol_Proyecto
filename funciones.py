@@ -90,7 +90,11 @@ def crear_factura():
 
     guardar = input("Desea guardar la factura? (si/no): ").lower()
     if guardar == "si":
+<<<<<<< HEAD
         nombre_archivo = ("BRENDA_NICOL_PROYECTO/factura.csv")
+=======
+        nombre_archivo = ("factura.csv")
+>>>>>>> refs/remotes/origin/main
         with open(nombre_archivo, "a") as f:
             f.write(f"-----------FACTURA----------\nFecha: {fecha}\nMesa: {mesa['nombre']}\nCliente: {cliente['nombre']}\nTelefono: {cliente['telefono']}\nCorreo: {cliente['correo']}\n--------------------------------\n")
 
